@@ -32,7 +32,6 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { ContactForm } from "@/components/contact-form"
 import { ProfileManager } from "@/components/profile-manager"
 import { TechShowcase } from "@/components/tech-showcase"
-import { ExpertiseHub } from "@/components/expertise-hub"
 import { RecognitionShowcase } from "@/components/recognition-showcase"
 import { useProfile } from "@/hooks/use-profile"
 
@@ -637,7 +636,7 @@ export default function Portfolio() {
       </section>
 
       {/* Replace Skills Section with Enhanced ExpertiseHub */}
-      <ExpertiseHub />
+      {/* <ExpertiseHub /> */}
 
       {/* Replace Achievements Section with Enhanced RecognitionShowcase */}
       <RecognitionShowcase />
