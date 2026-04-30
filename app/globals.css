@@ -4,66 +4,55 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 47 95% 50%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 47 95% 50%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 47 95% 50%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 47 95% 50%;
+    --background: #F9F8F6;
+    --foreground: #0D0D0D;
+    --secondary-text: #6B6B6B;
+    --accent: #2563EB;
+    --border-color: #E2E0DA;
+    --stats-bg: #F0EFE9;
+    --card-bg: #F9F8F6;
+    
+    --font-instrument-serif: 'Instrument Serif', serif;
+    --font-dm-sans: 'DM Sans', sans-serif;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-dm-sans);
+    font-size: 16px;
+    line-height: 1.6;
   }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-instrument-serif);
+    font-weight: 400;
+    line-height: 1.2;
   }
-  50% {
-    transform: translateY(-10px) rotate(180deg);
+  
+  h1 {
+    font-size: 3.5rem;
+    @apply md:text-5xl;
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+    @apply md:text-2xl;
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration: none;
   }
 }
