@@ -38,6 +38,9 @@ export const LinearBackground = () => {
 
     function draw() {
       if (!ctx || !canvas) return
+      
+      // Ensure canvas has valid dimensions
+      if (width <= 0 || height <= 0) return
 
       // Clear canvas
       ctx.clearRect(0, 0, width, height)
@@ -72,19 +75,21 @@ export const LinearBackground = () => {
         ctx.fill()
       })
 
-      // Add noise texture
-      const imageData = ctx.getImageData(0, 0, width, height)
-      const data = imageData.data
+      // Add noise texture - only if canvas has valid dimensions
+      if (width > 0 && height > 0) {
+        const imageData = ctx.getImageData(0, 0, width, height)
+        const data = imageData.data
 
-      for (let i = 0; i < data.length; i += 4) {
-        // Add subtle noise
-        const noise = (Math.random() - 0.5) * 5
-        data[i] = Math.min(255, Math.max(0, data[i] + noise))
-        data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise))
-        data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise))
+        for (let i = 0; i < data.length; i += 4) {
+          // Add subtle noise
+          const noise = (Math.random() - 0.5) * 5
+          data[i] = Math.min(255, Math.max(0, data[i] + noise))
+          data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise))
+          data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise))
+        }
+
+        ctx.putImageData(imageData, 0, 0)
       }
-
-      ctx.putImageData(imageData, 0, 0)
 
       // Add grid overlay
       ctx.strokeStyle = "rgba(255, 255, 255, 0.03)"
@@ -109,16 +114,20 @@ export const LinearBackground = () => {
     const resizeCanvas = () => {
       width = window.innerWidth
       height = window.innerHeight
-      canvas.width = width
-      canvas.height = height
+      
+      // Ensure valid dimensions before setting canvas size
+      if (width > 0 && height > 0) {
+        canvas.width = width
+        canvas.height = height
 
-      // Reposition points when canvas is resized
-      points.forEach((point) => {
-        point.x = Math.random() * width
-        point.y = Math.random() * height
-      })
+        // Reposition points when canvas is resized
+        points.forEach((point) => {
+          point.x = Math.random() * width
+          point.y = Math.random() * height
+        })
 
-      draw()
+        draw()
+      }
     }
 
     window.addEventListener("resize", resizeCanvas)
