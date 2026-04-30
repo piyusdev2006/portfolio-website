@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react'
@@ -45,8 +46,8 @@ export default function Portfolio() {
         isScrolled ? 'border-b border-border-color bg-background' : 'bg-background'
       }`}>
         <div className="min-w-[320px] max-w-[1100px] w-full mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-foreground text-sm font-medium">Naveen Singh</div>
-          <div className="hidden md:flex gap-12 text-sm">
+          <div className="text-foreground text-sm font-medium font-sans">Naveen Singh</div>
+          <div className="hidden md:flex gap-12 text-sm font-sans">
             <a href="#work" className="text-foreground hover:text-accent transition-colors">Work</a>
             <a href="#skills" className="text-foreground hover:text-accent transition-colors">Skills</a>
             <a href="#contact" className="text-foreground hover:text-accent transition-colors">Contact</a>
@@ -60,7 +61,7 @@ export default function Portfolio() {
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
             {/* Text Content */}
             <div className="flex-1">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight text-balance font-sans">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight text-balance font-serif">
                 I build things for the web.
               </h1>
               <p className="text-secondary-text mb-8 text-base leading-relaxed">
@@ -78,8 +79,14 @@ export default function Portfolio() {
 
             {/* Avatar */}
             <div className="w-full md:w-48 md:flex-shrink-0">
-              <div className="aspect-square rounded overflow-hidden border border-border-color bg-gray-200 flex items-center justify-center">
-                <span className="text-secondary-text text-sm">Avatar</span>
+              <div className="aspect-square rounded overflow-hidden border border-border-color">
+                <Image 
+                  src="/placeholder-user.jpg" 
+                  alt="Naveen Singh" 
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -87,7 +94,7 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Row */}
-      <section className="bg-stats-bg py-8 sm:py-10 md:py-12">
+      <section className="bg-stats-bg py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="min-w-[300px] max-w-[860px] w-full mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4 md:gap-8">
             <div className="border-b sm:border-r sm:border-b-0 border-border-color pb-4 sm:pb-0 sm:pr-6 md:pr-8">
@@ -116,7 +123,7 @@ export default function Portfolio() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-10 md:mb-14 font-sans">Featured Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, idx) => (
-              <div key={idx} className="border border-border-color rounded p-6 hover:shadow-sm transition-shadow">
+              <div key={idx} className="border border-border-color rounded p-8 md:p-10 hover:shadow-sm transition-shadow">
                 <h3 className="text-lg md:text-xl font-sans font-medium mb-2">{project.name}</h3>
                 <p className="text-secondary-text text-sm mb-4">{project.description}</p>
                 <div className="flex gap-2 mb-6 flex-wrap">
