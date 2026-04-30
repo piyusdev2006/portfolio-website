@@ -35,7 +35,6 @@ import { TechShowcase } from "@/components/tech-showcase"
 import { ExpertiseHub } from "@/components/expertise-hub"
 import { RecognitionShowcase } from "@/components/recognition-showcase"
 import { useProfile } from "@/hooks/use-profile"
-import { PhotoEditorTest } from "@/components/photo-editor-test"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -808,7 +807,6 @@ export default function Portfolio() {
                     <X className="w-4 h-4" />
                   </Button>
                 </div>
-                <PhotoEditorTest />
               </div>
             </motion.div>
           </motion.div>
