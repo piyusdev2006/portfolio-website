@@ -1,3 +1,9 @@
-lockfile-only=false
+# Allow pnpm to update lock file during installation
 frozen-lockfile=false
 prefer-frozen-lockfile=false
+
+# Use the latest compatible versions
+update-notifier=false
+
+# Install dependencies
+auto-install-peers=true
