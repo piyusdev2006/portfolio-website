@@ -1,7 +1,10 @@
 {
-  "name": "naveen-portfolio",
-  "version": "0.1.0",
+  "name": "naveen-singh-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Portfolio of Naveen Singh - Full Stack Developer",
+  "repository": "https://github.com/piyusdev2006/portfolio-website",
+  "author": "Naveen Singh",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
