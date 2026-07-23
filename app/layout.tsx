@@ -6,6 +6,19 @@ import { ThemeProvider } from "@/components/theme-provider"
 export const metadata: Metadata = {
   title: "Naveen Singh - Full Stack Developer",
   description: "Portfolio of Naveen Singh, Full Stack Developer specializing in MERN stack",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
     generator: 'v0.app'
 }
 
