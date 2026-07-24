@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm install && pnpm run build",
+  "installCommand": "pnpm install",
+  "env": {
+    "PNPM_HOME": ".pnpm",
+    "PNPM_CREATE_STUBS": "1"
+  }
+}
