@@ -46,19 +46,20 @@ export function ContactSection({ email, github, linkedin, leetcode }: ContactSec
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-6 mb-12"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mb-12"
         >
           <a
             href={`mailto:${email}`}
-            className="px-6 py-3 bg-cyan-500/20 border border-cyan-400/50 rounded-lg text-cyan-400 hover:bg-cyan-500/30 transition-colors"
+            className="px-6 py-3 bg-cyan-500/20 border border-cyan-400/50 rounded-lg text-cyan-400 hover:bg-cyan-500/30 transition-colors text-center"
           >
             Email Me
           </a>
           <a
-            href="#"
-            className="px-6 py-3 text-zinc-400 hover:text-cyan-400 transition-colors"
+            href="/resume.pdf"
+            download
+            className="px-6 py-3 border border-zinc-600 rounded-lg text-zinc-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-colors text-center"
           >
-            Resume
+            Download Resume
           </a>
         </motion.div>
 

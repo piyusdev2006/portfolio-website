@@ -25,13 +25,14 @@ export function MinimalHeader() {
             Naveen Singh
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {navItems.map((item) => (
               <motion.a
                 key={item.href}
                 href={item.href}
                 whileHover={{ color: '#06b6d4' }}
                 className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
+                aria-label={item.label}
               >
                 {item.label}
               </motion.a>

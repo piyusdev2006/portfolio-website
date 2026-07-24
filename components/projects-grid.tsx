@@ -36,14 +36,15 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
     <motion.section
       id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto w-full">
         <motion.h2
+          id="projects-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,13 +59,13 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid gap-8"
+          className="grid gap-4 sm:gap-6 md:gap-8"
         >
           {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={item}
-              className="group border border-zinc-800 rounded-lg p-6 hover:border-cyan-400/50 transition-colors"
+              className="group border border-zinc-800 rounded-lg p-4 sm:p-6 hover:border-cyan-400/50 transition-colors"
             >
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-zinc-400 mb-4">{project.description}</p>

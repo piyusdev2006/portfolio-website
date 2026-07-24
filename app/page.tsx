@@ -66,11 +66,16 @@ export default function Home() {
   })
 
   useEffect(() => {
+    // Try to load saved image first
     const savedImage = localStorage.getItem('profileImage')
     if (savedImage) {
       setProfileImage(savedImage)
+    } else {
+      // Fallback to GitHub profile image
+      setProfileImage('https://github.com/piyusdev2006.png')
     }
 
+    // Load saved user info
     const savedUserInfo = localStorage.getItem('userInfo')
     if (savedUserInfo) {
       try {
@@ -92,9 +97,13 @@ export default function Home() {
         description={userInfo.description}
       />
 
-      <ProjectsGrid projects={DEFAULT_PROJECTS} />
+      <section aria-labelledby="projects-heading">
+        <ProjectsGrid projects={DEFAULT_PROJECTS} />
+      </section>
 
-      <SkillsSection skills={DEFAULT_SKILLS} />
+      <section aria-labelledby="skills-heading">
+        <SkillsSection skills={DEFAULT_SKILLS} />
+      </section>
 
       <ContactSection
         email={userInfo.email}
@@ -103,7 +112,7 @@ export default function Home() {
         leetcode={userInfo.leetcode}
       />
 
-      <footer className="border-t border-zinc-800 py-8 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-zinc-800 py-8 px-4 sm:px-6 lg:px-8" role="contentinfo">
         <div className="max-w-4xl mx-auto text-center text-zinc-500 text-sm">
           <p>Built with Next.js, React, and Tailwind CSS. Deployed on Vercel.</p>
           <p className="mt-2">© {new Date().getFullYear()} Naveen Singh. All rights reserved.</p>
